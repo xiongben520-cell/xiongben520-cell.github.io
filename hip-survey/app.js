@@ -234,11 +234,9 @@
     if (!pendingPayload) return;
 
     const name = document.getElementById('patientName').value.trim();
-    const phone = document.getElementById('patientPhone').value.trim();
     if (!name) { infoErr.textContent = '请填写姓名'; return; }
-    if (!/^1[3-9]\d{9}$/.test(phone)) { infoErr.textContent = '请填写正确的 11 位手机号'; return; }
 
-    const payload = Object.assign({}, pendingPayload, { name: name, phone: phone });
+    const payload = Object.assign({}, pendingPayload, { name: name });
     const btn = document.getElementById('infoConfirm');
     btn.disabled = true;
     btn.textContent = '提交中…';

@@ -38,16 +38,12 @@
 
 <div class="overlay" id="infoOverlay" hidden>
   <div class="dialog info-dialog">
-    <h2 style="margin-top:0;color:var(--brown-dark)">请留下联系信息</h2>
-    <p style="margin-top:0">便于我们回访与核对，信息将与问卷编号绑定存档</p>
+    <h2 style="margin-top:0;color:var(--brown-dark)">请留下您的姓名</h2>
+    <p style="margin-top:0">便于我们核对，姓名将与问卷编号绑定存档</p>
     <form id="infoForm" novalidate>
       <div class="info-field">
         <label for="patientName">姓名</label>
         <input type="text" id="patientName" maxlength="64" placeholder="请输入姓名" autocomplete="name" required>
-      </div>
-      <div class="info-field">
-        <label for="patientPhone">电话</label>
-        <input type="tel" id="patientPhone" inputmode="numeric" maxlength="11" placeholder="请输入 11 位手机号" autocomplete="tel" required>
       </div>
       <p id="infoErr" class="info-err"></p>
       <div class="info-actions">

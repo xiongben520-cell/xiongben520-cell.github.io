@@ -136,7 +136,6 @@
         '<td>' + esc(surveyNo(r)) + '</td>' +
         '<td>' + fmtTime(r.created_at) + '</td>' +
         '<td>' + esc(r.patient_name || '-') + '</td>' +
-        '<td>' + esc(r.patient_phone || '-') + '</td>' +
         '<td>' + esc(labelOf(singleMap.pain, r.pain_level)) + '</td>' +
         '<td>' + esc(labelOf(singleMap.flexion, r.flexion_ability)) + '</td>' +
         '<td>' + esc(labelOf(singleMap.abduction, r.abduction_ability)) + '</td>' +
@@ -147,7 +146,7 @@
         '<td>' + esc(r.ip || '-') + '</td>' +
         '<td><button class="btn ghost small" data-id="' + r.id + '">详情</button></td>' +
         '</tr>';
-    }).join('') || '<tr><td colspan="13" class="muted" style="text-align:center;padding:30px">暂无数据</td></tr>';
+    }).join('') || '<tr><td colspan="12" class="muted" style="text-align:center;padding:30px">暂无数据</td></tr>';
 
     const pages = Math.max(1, Math.ceil(total / size));
     $('#pageInfo').textContent = '第 ' + d.page + ' / ' + pages + ' 页（共 ' + total + ' 条）';
@@ -167,7 +166,6 @@
       ['问卷编号', surveyNo(r)],
       ['提交时间', fmtTime(r.created_at)],
       ['姓名', r.patient_name || '-'],
-      ['电话', r.patient_phone || '-'],
       ['IP', r.ip || '-']
     ];
     cfg.single.forEach(function (q) { rows.push([q.no + ' ' + q.title, labelOf(q, r[q.column])]); });
