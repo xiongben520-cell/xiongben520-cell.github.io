@@ -47,6 +47,9 @@ body{
   background:#fbf3df
 }
 .seal.green{border-color:#4f7d4a;color:#4f7d4a;background:#f0f6ef}
+.seal-img{
+  width:30px;height:30px;object-fit:contain;vertical-align:middle;flex:0 0 auto
+}
 .dot{color:var(--gold);font-size:11px}
 .title-block{text-align:center;margin:12px 0 20px}
 h1{
@@ -166,6 +169,7 @@ h1{
   .frame::after{top:auto;bottom:5px;left:auto;right:5px}
   .brand-line{font-size:12px;gap:5px;line-height:1.5}
   .seal{width:21px;height:21px;font-size:12px}
+  .seal-img{width:24px;height:24px}
   .title-block{margin:8px 0 14px}
   h1{font-size:21px;letter-spacing:0}
   .subtitle{font-size:12px}
