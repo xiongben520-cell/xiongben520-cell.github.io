@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#7a5a2e">
+<meta name="description" content="股骨头坏死患者症状与功能调查表在线填写">
+<title>股骨头坏死患者症状与功能调查表</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main class="page">
+  <div class="frame">
+    <header class="masthead">
+      <div class="brand-line">
+        <span class="seal">弘</span><span id="hospital"></span>
+        <span class="dot">◆</span>
+        <span class="seal green">保</span><span id="center"></span>
+      </div>
+    </header>
+
+    <div class="title-block">
+      <h1 id="title"></h1>
+      <p class="subtitle" id="subtitle"></p>
+    </div>
+
+    <form id="surveyForm" novalidate>
+      <div id="questions"></div>
+      <div class="submit-wrap">
+        <button type="submit" id="submitBtn">提 交 调 查 表</button>
+        <p class="tip">请确认所有题目均已填写后再提交，感谢您的配合</p>
+      </div>
+    </form>
+
+    <footer class="footer" id="footer"></footer>
+  </div>
+</main>
+
+<div class="overlay" id="infoOverlay" hidden>
+  <div class="dialog info-dialog">
+    <h2 style="margin-top:0;color:var(--brown-dark)">请留下联系信息</h2>
+    <p style="margin-top:0">便于我们回访与核对，信息将与问卷编号绑定存档</p>
+    <form id="infoForm" novalidate>
+      <div class="info-field">
+        <label for="patientName">姓名</label>
+        <input type="text" id="patientName" maxlength="64" placeholder="请输入姓名" autocomplete="name" required>
+      </div>
+      <div class="info-field">
+        <label for="patientPhone">电话</label>
+        <input type="tel" id="patientPhone" inputmode="numeric" maxlength="11" placeholder="请输入 11 位手机号" autocomplete="tel" required>
+      </div>
+      <p id="infoErr" class="info-err"></p>
+      <div class="info-actions">
+        <button type="button" class="ghost" id="infoCancel">返回修改</button>
+        <button type="submit" id="infoConfirm">确认提交</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="dialog">
+    <div class="ok-icon">✓</div>
+    <h2>提交成功</h2>
+    <p>感谢您配合完成本次调查！<br>您的问卷编号为 <b id="surveyNo"></b>，信息已存档。</p>
+    <button id="againBtn">再填一份</button>
+  </div>
+</div>
+
+<script>window.API_BASE = 'https://hip-surey-proxy-ntfhkbccoh.cn-hangzhou.fcapp.run';</script>
+<script src="/config.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>

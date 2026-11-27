@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>调查数据管理后台</title>
+<link rel="stylesheet" href="/admin.css">
+</head>
+<body>
+
+<div id="loginView" class="login-wrap">
+  <div class="card login-card">
+    <h2 style="margin-top:0;color:var(--brown-dark)">调查数据管理后台</h2>
+    <p class="muted">请输入管理密码后查看收集的调查信息</p>
+    <form id="loginForm">
+      <div class="field" style="margin-bottom:14px">
+        <label>管理密码</label>
+        <input type="password" id="password" required autocomplete="current-password" placeholder="请输入管理密码">
+      </div>
+      <button class="btn" type="submit" style="width:100%">登 录</button>
+    </form>
+    <p id="loginErr" style="display:block;color:var(--danger);font-size:13px;margin-bottom:0"></p>
+  </div>
+</div>
+
+<div id="appView" hidden>
+  <div class="topbar">
+    <h1>股骨头坏死调查表 · 数据管理</h1>
+    <div class="right"><span id="totalLabel"></span><button class="btn ghost small" id="logoutBtn">退出</button></div>
+  </div>
+
+  <div class="wrap">
+    <div class="card">
+      <h3 style="margin-top:0">数据概览</h3>
+      <div class="stats" id="stats"></div>
+    </div>
+
+    <div class="card">
+      <div class="filters">
+        <div class="field"><label>关键词（编号 / 姓名 / 电话 / IP）</label><input id="keyword" placeholder="编号、姓名、手机号或 IP"></div>
+        <div class="field"><label>开始日期</label><input type="date" id="start"></div>
+        <div class="field"><label>结束日期</label><input type="date" id="end"></div>
+        <button class="btn" id="queryBtn">查询</button>
+        <button class="btn ghost" id="resetBtn">重置</button>
+        <button class="btn ghost" id="exportBtn">导出 CSV</button>
+        <button class="btn ghost" id="refreshBtn">刷新统计</button>
+      </div>
+
+      <div class="table-scroll" style="margin-top:16px">
+        <table class="list">
+          <thead><tr>
+            <th>问卷编号</th><th>提交时间</th><th>姓名</th><th>电话</th><th>疼痛</th><th>弯曲</th><th>外展</th>
+            <th>步数</th><th>伴随情况</th><th>步行能力</th><th>日常动作</th><th>IP</th><th>操作</th>
+          </tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+      <div class="pager">
+        <button class="btn ghost small" id="prevBtn">上一页</button>
+        <span id="pageInfo"></span>
+        <button class="btn ghost small" id="nextBtn">下一页</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="detailModal" hidden>
+  <div class="box">
+    <h3 style="margin-top:0">提交详情 <span id="detailId" class="muted"></span></h3>
+    <div class="detail-grid" id="detailBody"></div>
+    <div style="text-align:right;margin-top:16px"><button class="btn ghost" id="closeModal">关闭</button></div>
+  </div>
+</div>
+
+<script>window.API_BASE = 'https://hip-surey-proxy-ntfhkbccoh.cn-hangzhou.fcapp.run';</script>
+<script src="/config.js"></script>
+<script src="/admin.js"></script>
+</body>
+</html>
